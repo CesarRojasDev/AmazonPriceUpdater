@@ -70,9 +70,13 @@ def main(archivo, columna_precio, columna_link, columna_stock):
                         print(Fore.RED + "Error al obtener el precio:", e)
                         precio_redondeado = 0
                         hoja.cell(row=fila[0].row, column=columna_stock_idx).value = "0"
+                        #* Asignar "10000" en la columna S
+                        hoja.cell(row=fila[0].row, column=19).value = "10000"  #? Columna S (índice 24)
                 else:
                     precio_redondeado = 0
                     hoja.cell(row=fila[0].row, column=columna_stock_idx).value = "0"
+                    #* Asignar "10000" en la columna S
+                    hoja.cell(row=fila[0].row, column=19).value = "10000"  #? Columna S (índice 24)
 
             except (TimeoutException, WebDriverException) as e:
                 print(Fore.RED + "Error:", e)
